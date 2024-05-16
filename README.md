@@ -22,6 +22,12 @@
   [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=MatheusTG&bg_color=0d1117&color=70A5FD&line=70A5FD&point=5e9bfd&area=true&hide_border=true&area=true&height=300&custom_title=Last+30+days+commits)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 <div align="center">
+  <br />
+  <p><strong>Visitors Count</strong></p>  
+  <p><img src="https://profile-counter.glitch.me/{MatheusTG}/count.svg" /></p>
+</div>
+
+<div align="center">
   
   ![snake gif](https://github.com/MatheusTG/MatheusTG/blob/output/github-contribution-grid-snake.svg)
 </div>
