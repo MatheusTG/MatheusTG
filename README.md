@@ -27,6 +27,5 @@
 </div>
 
 <p align="right">
-  <img src="https://vbr.nathanchung.dev/badge?page_id=MatheusTG&color=0d1117&lcolor=0d1117&logo=github&hit=false" />
-  <img src="https://vbr.nathanchung.dev/badge?page_id=MatheusTG&color=0d1117&lcolor=0d1117&text=Views&hit=true" />
+  <img src="https://vbr.nathanchung.dev/badge?page_id=MatheusTG&color=0d1117&lcolor=0d1117&text=Views&logo=github" />
 </p>
