@@ -1,4 +1,5 @@
-<h1 align="center">Matheus Teodoro</h1>
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=70A5FD&size=35&center=true&vCenter=true&width=1000&lines=Hello,+I+am+Matheus+Teodoro+Garcia;I'm+18+years+old;I+am+from+Araruna,+PR;Tech.+Informatics+UTFPR+3/4;Be+Welcome!+:%29)](https://git.io/typing-svg)
+
 <div align="center">
   
   <img height="160em" src="https://github-readme-streak-stats.herokuapp.com/?user=MatheusTG&theme=tokyonight&hide_border=true"/>
