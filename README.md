@@ -1,8 +1,8 @@
 <h1 align="center">Matheus Teodoro</h1>
 <div align="center">
   
-  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=MatheusTG&theme=tokyonight&hide_border=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MatheusTG&layout=compact&langs_count=7&theme=tokyonight&hide=html&hide_border=true"/>
+  <img height="160em" src="https://github-readme-streak-stats.herokuapp.com/?user=MatheusTG&theme=tokyonight&hide_border=true"/>
+  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MatheusTG&layout=compact&langs_count=7&theme=tokyonight&hide=html&hide_border=true"/>
   
 </div>
 
