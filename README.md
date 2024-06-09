@@ -9,7 +9,7 @@
 
 <h2 align="center">
   
-  [![My Skills](https://skillicons.dev/icons?i=javascript,typescript,python,html,css,react,django,materialui,postgres,figma,git)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=javascript,typescript,python,php,html,css,react,django,materialui,postgres,figma,git)](https://skillicons.dev)
 
 </div>
 
