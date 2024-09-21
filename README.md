@@ -17,6 +17,7 @@
 
   <a href="https://www.instagram.com/matheust.garcia/" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
   <a href = "mailto:matheusteodorogarcia0@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href = "https://www.linkedin.com/in/matheus-teodoro-9bb038263/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 </h2>
 
   [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=MatheusTG&bg_color=0d1117&color=70A5FD&line=70A5FD&point=5e9bfd&area=true&hide_border=true&area=true&height=300&custom_title=Last+30+days+commits)](https://github.com/ashutosh00710/github-readme-activity-graph)
