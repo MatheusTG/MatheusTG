@@ -1,275 +1,358 @@
-<svg width="1600" height="460" viewBox="0 0 1600 460" xmlns="http://www.w3.org/2000/svg" role="img">
-<title>My Journey — Developer Timeline</title>
-<desc>A horizontal timeline showing key milestones from 2021 to 2026.</desc>
-<defs>
+<svg width="2400" height="1400" viewBox="0 0 2400 1400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Animated tech gradient -->
+    <linearGradient id="techShift"
+                    gradientUnits="userSpaceOnUse"
+                    x1="0" y1="0"
+                    x2="400" y2="0"
+                    spreadMethod="repeat">
+      <stop offset="0%" stop-color="#4f7cff"/>
+      <stop offset="45%" stop-color="#3b82ff"/>
+      <stop offset="80%" stop-color="#5b5fff"/>
+      <stop offset="100%" stop-color="#4f7cff"/>
 
-  <linearGradient id="techShift" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1600" y2="0" spreadMethod="repeat">
-    <stop offset="0%"   stop-color="#22d3ee"/>
-    <stop offset="33%"  stop-color="#3b82f6"/>
-    <stop offset="66%"  stop-color="#6366f1"/>
-    <stop offset="100%" stop-color="#22d3ee"/>
-    <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1600 0" dur="40s" repeatCount="indefinite"/>
-  </linearGradient>
+      <animateTransform
+          attributeName="gradientTransform"
+          type="translate"
+          from="0 0"
+          to="400 0"
+          dur="40s"
+          repeatCount="indefinite"/>
+    </linearGradient>
 
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur stdDeviation="3" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+    <!-- Glow filters -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-  <filter id="glowStrong" x="-100%" y="-100%" width="300%" height="300%">
-    <feGaussianBlur stdDeviation="6" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+    <radialGradient id="particleGlow">
+      <stop offset="0%" stop-color="#5ea0ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#5ea0ff" stop-opacity="0"/>
+    </radialGradient>
 
-  <filter id="particleGlow" x="-200%" y="-200%" width="500%" height="500%">
-    <feGaussianBlur stdDeviation="2" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+    <!-- Static gradient for the main timeline line -->
+    <linearGradient id="lineGrad">
+      <stop offset="0%" stop-color="#335dff"/>
+      <stop offset="50%" stop-color="#4f7cff"/>
+      <stop offset="100%" stop-color="#5b5fff"/>
+    </linearGradient>
+  </defs>
 
-  <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="4" result="blur"/>
-    <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.231  0 0 0 0 0.510  0 0 0 0 0.965  0 0 0 0.6 0" result="coloredBlur"/>
-    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+  <!-- Faint grid pattern -->
+  <g stroke="#3b82f6" stroke-width="1" opacity="0.08">
+    <g>
+      <line x1="120" y1="0" x2="120" y2="1400"/>
+      <line x1="360" y1="0" x2="360" y2="1400"/>
+      <line x1="600" y1="0" x2="600" y2="1400"/>
+      <line x1="840" y1="0" x2="840" y2="1400"/>
+      <line x1="1080" y1="0" x2="1080" y2="1400"/>
+      <line x1="1320" y1="0" x2="1320" y2="1400"/>
+      <line x1="1560" y1="0" x2="1560" y2="1400"/>
+      <line x1="1800" y1="0" x2="1800" y2="1400"/>
+      <line x1="2040" y1="0" x2="2040" y2="1400"/>
+      <line x1="2280" y1="0" x2="2280" y2="1400"/>
+    </g>
+    <g>
+      <line x1="0" y1="132" x2="2400" y2="132"/>
+      <line x1="0" y1="335" x2="2400" y2="335"/>
+      <line x1="0" y1="537" x2="2400" y2="537"/>
+      <line x1="0" y1="739" x2="2400" y2="739"/>
+      <line x1="0" y1="941" x2="2400" y2="941"/>
+      <line x1="0" y1="1143" x2="2400" y2="1143"/>
+      <line x1="0" y1="1330" x2="2400" y2="1330"/>
+    </g>
+  </g>
 
-  <linearGradient id="circuitGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/>
-    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
-  </linearGradient>
+  <!-- Decorative circuit lines: top-right corner -->
+  <g fill="none" stroke="url(#techShift)" stroke-width="1.8" opacity="0.3" stroke-linecap="round">
+    <path d="M2400,62 L2280,62 L2280,140 L2196,140 L2196,218"/>
+    <path d="M2400,218 L2352,218 L2352,311 L2256,311"/>
+    <path d="M2400,405 L2328,405 L2328,327"/>
+    <circle cx="2196" cy="218" r="5" fill="#22d3ee"/>
+    <circle cx="2256" cy="311" r="5" fill="#3b82f6"/>
+    <circle cx="2328" cy="327" r="5" fill="#6366f1"/>
+    <circle cx="2280" cy="140" r="4" fill="#22d3ee"/>
+  </g>
 
-</defs>
+  <!-- Decorative circuit lines: bottom-left corner -->
+  <g fill="none" stroke="url(#techShift)" stroke-width="1.8" opacity="0.3" stroke-linecap="round">
+    <path d="M0,1338 L72,1338 L72,1261 L168,1261 L168,1183"/>
+    <path d="M0,1198 L48,1198 L48,1105 L144,1105"/>
+    <path d="M0,1400 L120,1400 L120,1307"/>
+    <circle cx="168" cy="1183" r="5" fill="#22d3ee"/>
+    <circle cx="144" cy="1105" r="5" fill="#3b82f6"/>
+    <circle cx="120" cy="1307" r="5" fill="#6366f1"/>
+    <circle cx="72" cy="1261" r="4" fill="#22d3ee"/>
+  </g>
 
-<!-- Grid pattern (subtle) -->
-<g opacity="0.04" stroke="#3b82f6" stroke-width="0.5">
-  <line x1="0" y1="100" x2="1600" y2="100"/>
-  <line x1="0" y1="200" x2="1600" y2="200"/>
-  <line x1="0" y1="300" x2="1600" y2="300"/>
-  <line x1="0" y1="400" x2="1600" y2="400"/>
-  <line x1="0" y1="500" x2="1600" y2="500"/>
-  <line x1="0" y1="600" x2="1600" y2="600"/>
-  <line x1="100" y1="0" x2="100" y2="630"/>
-  <line x1="200" y1="0" x2="200" y2="630"/>
-  <line x1="300" y1="0" x2="300" y2="630"/>
-  <line x1="400" y1="0" x2="400" y2="630"/>
-  <line x1="500" y1="0" x2="500" y2="630"/>
-  <line x1="600" y1="0" x2="600" y2="630"/>
-  <line x1="700" y1="0" x2="700" y2="630"/>
-  <line x1="800" y1="0" x2="800" y2="630"/>
-  <line x1="900" y1="0" x2="900" y2="630"/>
-  <line x1="1000" y1="0" x2="1000" y2="630"/>
-  <line x1="1100" y1="0" x2="1100" y2="630"/>
-  <line x1="1200" y1="0" x2="1200" y2="630"/>
-  <line x1="1300" y1="0" x2="1300" y2="630"/>
-  <line x1="1400" y1="0" x2="1400" y2="630"/>
-  <line x1="1500" y1="0" x2="1500" y2="630"/>
-</g>
+  <!-- Floating particles -->
+  <g>
+    <circle cx="180" cy="249" r="3.5" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.2;0.9;0.2" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="249;220;249" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="480" cy="1151" r="3" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="1151;1120;1151" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="840" cy="202" r="4" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="202;172;202" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1272" cy="1252" r="3.5" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.25;0.85;0.25" dur="6.5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="1252;1222;1252" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1620" cy="265" r="3" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="265;295;265" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1944" cy="1151" r="4" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="1151;1181;1151" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="2220" cy="708" r="3" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="2220;2188;2220" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90" cy="708" r="3" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="90;122;90" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1170" cy="708" r="3.5" fill="url(#particleGlow)">
+      <animate attributeName="opacity" values="0.25;0.75;0.25" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="708;686;708" dur="7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 
-<!-- Decorative circuit lines — top-left -->
-<g stroke="url(#circuitGrad)" stroke-width="1" fill="none" opacity="0.55">
-  <path d="M 0 80 L 60 80 L 60 40 L 160 40"/>
-  <path d="M 0 160 L 40 160 L 40 120 L 110 120"/>
-  <path d="M 60 80 L 60 140 L 120 140"/>
-  <circle cx="60"  cy="80"  r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="60"  cy="40"  r="3" fill="#22d3ee" opacity="0.6"/>
-  <circle cx="40"  cy="160" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="60"  cy="140" r="3" fill="#22d3ee" opacity="0.6"/>
-</g>
+  <!-- Main timeline line -->
+  <g>
+    <line x1="120" y1="700" x2="2280" y2="700" stroke="#3b82f6" stroke-width="22" stroke-linecap="round" opacity="0.10"/>
+    <line x1="120" y1="700" x2="2280" y2="700" stroke="#3b82f6" stroke-width="12" stroke-linecap="round" opacity="0.18"/>
+    <line x1="120" y1="700" x2="2280" y2="700" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round"/>
+  </g>
 
-<!-- Decorative circuit lines — bottom-right -->
-<g stroke="url(#circuitGrad)" stroke-width="1" fill="none" opacity="0.55">
-  <path d="M 1600 460 L 1540 460 L 1540 520 L 1440 520 L 1440 580 L 1320 580"/>
-  <path d="M 1600 560 L 1555 560 L 1555 600 L 1490 600"/>
-  <path d="M 1540 520 L 1540 480 L 1480 480"/>
-  <circle cx="1540" cy="460" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="1540" cy="520" r="3" fill="#22d3ee" opacity="0.6"/>
-  <circle cx="1440" cy="520" r="3" fill="#6366f1" opacity="0.6"/>
-  <circle cx="1555" cy="560" r="3" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="1540" cy="480" r="3" fill="#22d3ee" opacity="0.6"/>
-</g>
+  <!-- ============================================================ -->
+  <!-- Milestone 1: 2021 - Started Programming Journey (TOP) -->
+  <!-- ============================================================ -->
+  <g transform="translate(300,0)">
+    <line x1="0" y1="586" x2="0" y2="689" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
 
-<!-- Floating particles -->
-<g filter="url(#particleGlow)">
-  <circle cx="120" cy="250" r="2" fill="#22d3ee" opacity="0.7">
-    <animate attributeName="cy" values="250;230;250" dur="6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="350" cy="80" r="1.5" fill="#3b82f6" opacity="0.6">
-    <animate attributeName="cy" values="80;60;80" dur="8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="620" cy="560" r="2" fill="#6366f1" opacity="0.5">
-    <animate attributeName="cy" values="560;540;560" dur="7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="7s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="900" cy="50" r="2.5" fill="#22d3ee" opacity="0.6">
-    <animate attributeName="cy" values="50;30;50" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="9s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1150" cy="590" r="1.5" fill="#3b82f6" opacity="0.5">
-    <animate attributeName="cy" values="590;570;590" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1380" cy="90" r="2" fill="#6366f1" opacity="0.6">
-    <animate attributeName="cy" values="90;70;90" dur="7.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="7.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1520" cy="340" r="2" fill="#22d3ee" opacity="0.5">
-    <animate attributeName="cy" values="340;320;340" dur="6.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="6.5s" repeatCount="indefinite"/>
-  </circle>
-</g>
+    <!-- icon -->
+    <circle cx="0" cy="190" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <text x="0" y="207" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="46" font-weight="700" fill="url(#techShift)">&lt;/&gt;</text>
 
-<!-- TIMELINE LINE (y=230) -->
-<line x1="110" y1="230" x2="1510" y2="230" stroke="#3b82f6" stroke-width="3" opacity="0.18" filter="url(#glowStrong)"/>
-<line x1="110" y1="230" x2="1510" y2="230" stroke="url(#techShift)" stroke-width="2" opacity="0.9"/>
+    <!-- year -->
+    <text x="0" y="305" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2021</text>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 1: 2021 — x=165 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="165" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="165" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="165" y1="223" x2="165" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="165" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<text x="165" y="82" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="700" fill="#3b82f6">&lt;/&gt;</text>
-<!-- Year -->
-<text x="165" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2021</text>
-<!-- Title -->
-<text x="165" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Started</text>
-<text x="165" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Programming Journey</text>
-<rect x="120" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<!-- Description -->
-<text x="165" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Started learning programming</text>
-<text x="165" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">with Python and built my first</text>
-<text x="165" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">applications using Django.</text>
+    <!-- title -->
+    <text x="0" y="363" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">Started</tspan>
+      <tspan x="0" dy="49">Programming Journey</tspan>
+    </text>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 2: 2022 — Technical High School — x=410 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="410" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="410" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="410" y1="223" x2="410" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="410" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<g transform="translate(410,75)" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-  <polygon points="0,-16 18,-7 0,2 -18,-7" fill="#3b82f6" opacity="0.25" stroke="#3b82f6" stroke-width="1.5"/>
-  <polyline points="-18,-7 0,2 18,-7"/>
-  <path d="M 14 -4 L 14 8 Q 0 15 -14 8 L -14 -4" fill="#3b82f6" opacity="0.2"/>
-  <line x1="20" y1="-6" x2="20" y2="6"/>
-  <circle cx="20" cy="8" r="2.5" fill="#3b82f6"/>
-</g>
-<text x="410" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2022</text>
-<text x="410" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Technical High School</text>
-<text x="410" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">@ UTFPR</text>
-<rect x="365" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<text x="410" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Started the Integrated Technical</text>
-<text x="410" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Program in Information Technology,</text>
-<text x="410" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">focusing on software development</text>
-<text x="410" y="418" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">and databases.</text>
+    <!-- divider -->
+    <line x1="-45" y1="450" x2="45" y2="450" stroke="url(#techShift)" stroke-width="3"/>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 3: 2022 — Research Fellow — x=655 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="655" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="655" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="655" y1="223" x2="655" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="655" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<g transform="translate(655,75)" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-  <path d="M -7 -18 L -7 -4 L -18 14 Q -22 22 -12 22 L 12 22 Q 22 22 18 14 L 7 -4 L 7 -18" fill="#3b82f6" opacity="0.15"/>
-  <line x1="-10" y1="-18" x2="10" y2="-18"/>
-  <path d="M -7 -4 L -18 14 Q -22 22 -12 22 L 12 22 Q 22 22 18 14 L 7 -4" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="-4" cy="12" r="2.5" fill="#22d3ee" stroke="none"/>
-  <circle cx="6" cy="6" r="2" fill="#22d3ee" stroke="none"/>
-  <circle cx="-8" cy="4" r="1.5" fill="#22d3ee" stroke="none"/>
-</g>
-<text x="655" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2022</text>
-<text x="655" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Undergraduate</text>
-<text x="655" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Research Fellow</text>
-<rect x="610" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<text x="655" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Conducted research on</text>
-<text x="655" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Data Quality and Denial</text>
-<text x="655" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Constraints using Python</text>
-<text x="655" y="418" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">and OpenClean-Metanome.</text>
+    <!-- description -->
+    <text x="0" y="488" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Started learning programming</tspan>
+      <tspan x="0" dy="42">with Python and built my first</tspan>
+      <tspan x="0" dy="42">applications using Django.</tspan>
+    </text>
+  </g>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 4: 2024 — Intern — x=940 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="940" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="940" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="940" y1="223" x2="940" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="940" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<g transform="translate(940,75)" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-  <rect x="-20" y="-10" width="40" height="28" rx="4" fill="#3b82f6" opacity="0.15"/>
-  <path d="M -8 -10 L -8 -18 Q -8 -22 -4 -22 L 4 -22 Q 8 -22 8 -18 L 8 -10" fill="none"/>
-  <line x1="-20" y1="4" x2="20" y2="4"/>
-  <line x1="0" y1="0" x2="0" y2="8"/>
-</g>
-<text x="940" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2024</text>
-<text x="940" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Software Development</text>
-<text x="940" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Intern</text>
-<rect x="895" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<text x="940" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Developed web and mobile</text>
-<text x="940" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">applications using React,</text>
-<text x="940" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Next.js, React Native</text>
-<text x="940" y="418" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">and Node.js.</text>
+  <!-- ============================================================ -->
+  <!-- Milestone 2: 2022 - Technical High School @ UTFPR (BOTTOM) -->
+  <!-- ============================================================ -->
+  <g transform="translate(660,0)">
+    <line x1="0" y1="711" x2="0" y2="767" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 5: 2026 — B.Sc. — x=1210 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="1210" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="1210" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="1210" y1="223" x2="1210" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="1210" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<g transform="translate(1210,75)" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-  <polygon points="0,-16 18,-7 0,2 -18,-7" fill="#3b82f6" opacity="0.25" stroke="#3b82f6" stroke-width="1.5"/>
-  <polyline points="-18,-7 0,2 18,-7"/>
-  <path d="M 14 -4 L 14 8 Q 0 15 -14 8 L -14 -4" fill="#3b82f6" opacity="0.2"/>
-  <line x1="20" y1="-6" x2="20" y2="6"/>
-  <circle cx="20" cy="8" r="2.5" fill="#3b82f6"/>
-</g>
-<text x="1210" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2026</text>
-<text x="1210" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">B.Sc. in Computer</text>
-<text x="1210" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Science @ UTFPR</text>
-<rect x="1165" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<text x="1210" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Started a Computer Science</text>
-<text x="1210" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">degree focused on Data Science,</text>
-<text x="1210" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Machine Learning and</text>
-<text x="1210" y="418" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Data Quality.</text>
+    <!-- year -->
+    <text x="0" y="817" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2022</text>
 
-<!-- ============================================================ -->
-<!-- MILESTONE 6: 2026 — HPC Research — x=1460 -->
-<!-- ============================================================ -->
-<g filter="url(#nodeGlow)">
-  <circle cx="1460" cy="230" r="7" fill="#0b1628" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="1460" cy="230" r="3" fill="#3b82f6"/>
-</g>
-<line x1="1460" y1="223" x2="1460" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.5"/>
-<circle cx="1460" cy="75" r="45" fill="#0b1628" stroke="url(#techShift)" stroke-width="1.8" filter="url(#nodeGlow)"/>
-<g transform="translate(1460,75)" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
-  <rect x="-4" y="-22" width="12" height="22" rx="2" fill="#3b82f6" opacity="0.2"/>
-  <rect x="-7" y="-22" width="18" height="6" rx="2" fill="#3b82f6" opacity="0.3"/>
-  <rect x="-6" y="-4" width="16" height="4" rx="2" fill="#3b82f6" opacity="0.3"/>
-  <line x1="4" y1="0" x2="4" y2="10"/>
-  <line x1="-16" y1="22" x2="22" y2="22"/>
-  <line x1="4" y1="10" x2="-8" y2="22"/>
-  <line x1="4" y1="10" x2="16" y2="22"/>
-  <ellipse cx="-6" cy="-8" rx="6" ry="4" fill="#22d3ee" opacity="0.3" stroke="#22d3ee" stroke-width="1.2"/>
-</g>
-<text x="1460" y="276" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" letter-spacing="2">2026</text>
-<text x="1460" y="312" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">High-Performance</text>
-<text x="1460" y="332" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0">Data Processing Research</text>
-<rect x="1415" y="344" width="90" height="2" rx="1" fill="#3b82f6" opacity="0.7"/>
-<text x="1460" y="364" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">Research on high-performance</text>
-<text x="1460" y="382" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">data processing and data</text>
-<text x="1460" y="400" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">visualization for large-scale</text>
-<text x="1460" y="418" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">data analysis.</text>
+    <!-- title -->
+    <text x="0" y="875" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">Technical High School</tspan>
+      <tspan x="0" dy="49">@ UTFPR</tspan>
+    </text>
+
+    <!-- divider -->
+    <line x1="-45" y1="962" x2="45" y2="962" stroke="url(#techShift)" stroke-width="3"/>
+
+    <!-- description -->
+    <text x="0" y="1000" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Started the Integrated Technical</tspan>
+      <tspan x="0" dy="42">Program in Information Technology,</tspan>
+      <tspan x="0" dy="42">focusing on software development</tspan>
+      <tspan x="0" dy="42">and databases.</tspan>
+    </text>
+
+    <!-- icon: graduation cap -->
+    <circle cx="0" cy="1240" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <g transform="translate(0,1240)">
+      <polygon points="-36,-2 0,-19 36,-2 0,14" fill="url(#techShift)"/>
+      <rect x="-19" y="6" width="38" height="12" rx="2" fill="url(#techShift)"/>
+      <line x1="28" y1="-2" x2="34" y2="19" stroke="url(#techShift)" stroke-width="3"/>
+      <circle cx="34" cy="22" r="3" fill="url(#techShift)"/>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Milestone 3: 2022 - Undergraduate Research Fellow (TOP) -->
+  <!-- ============================================================ -->
+  <g transform="translate(1020,0)">
+    <line x1="0" y1="628" x2="0" y2="689" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
+
+    <!-- icon: flask -->
+    <circle cx="0" cy="190" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <g transform="translate(0,190)">
+      <rect x="-13" y="-30" width="28" height="7" fill="url(#techShift)"/>
+      <path d="M-12,-24 L-12,-4 L-29,24 L29,24 L12,-4 L12,-24 Z" fill="none" stroke="url(#techShift)" stroke-width="3.5" stroke-linejoin="round"/>
+      <circle cx="-8" cy="12" r="2.8" fill="url(#techShift)" opacity="0.85"/>
+      <circle cx="6" cy="8" r="2" fill="url(#techShift)" opacity="0.85"/>
+      <circle cx="0" cy="17" r="1.7" fill="url(#techShift)" opacity="0.85"/>
+    </g>
+
+    <!-- year -->
+    <text x="0" y="305" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2022</text>
+
+    <!-- title -->
+    <text x="0" y="363" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">Undergraduate</tspan>
+      <tspan x="0" dy="49">Research Fellow</tspan>
+    </text>
+
+    <!-- divider -->
+    <line x1="-45" y1="450" x2="45" y2="450" stroke="url(#techShift)" stroke-width="3"/>
+
+    <!-- description -->
+    <text x="0" y="488" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Conducted research on</tspan>
+      <tspan x="0" dy="42">Data Quality and Denial</tspan>
+      <tspan x="0" dy="42">Constraints using Python</tspan>
+      <tspan x="0" dy="42">and OpenClean-Metanome.</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Milestone 4: 2024 - Software Development Intern (BOTTOM) -->
+  <!-- ============================================================ -->
+  <g transform="translate(1380,0)">
+    <line x1="0" y1="711" x2="0" y2="767" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
+
+    <!-- year -->
+    <text x="0" y="817" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2024</text>
+
+    <!-- title -->
+    <text x="0" y="875" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">Software Development</tspan>
+      <tspan x="0" dy="49">Intern</tspan>
+    </text>
+
+    <!-- divider -->
+    <line x1="-45" y1="962" x2="45" y2="962" stroke="url(#techShift)" stroke-width="3"/>
+
+    <!-- description -->
+    <text x="0" y="1000" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Developed web and mobile</tspan>
+      <tspan x="0" dy="42">applications using React,</tspan>
+      <tspan x="0" dy="42">Next.js, React Native</tspan>
+      <tspan x="0" dy="42">and Node.js.</tspan>
+    </text>
+
+    <!-- icon: briefcase -->
+    <circle cx="0" cy="1240" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <g transform="translate(0,1240)">
+      <path d="M-14,-14 v-8 a14,11 0 0 1 29,0 v8" fill="none" stroke="url(#techShift)" stroke-width="3.5"/>
+      <rect x="-34" y="-14" width="67" height="41" rx="6" fill="none" stroke="url(#techShift)" stroke-width="3.5"/>
+      <line x1="-34" y1="4" x2="34" y2="4" stroke="url(#techShift)" stroke-width="2" opacity="0.7"/>
+      <rect x="-5" y="0" width="10" height="10" rx="2" fill="url(#techShift)"/>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Milestone 5: 2026 - B.Sc. in Computer Science @ UTFPR (TOP) -->
+  <!-- ============================================================ -->
+  <g transform="translate(1740,0)">
+    <line x1="0" y1="628" x2="0" y2="689" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
+
+    <!-- icon: graduation cap -->
+    <circle cx="0" cy="190" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <g transform="translate(0,190)">
+      <polygon points="-36,-2 0,-19 36,-2 0,14" fill="url(#techShift)"/>
+      <rect x="-19" y="6" width="38" height="12" rx="2" fill="url(#techShift)"/>
+      <line x1="28" y1="-2" x2="34" y2="19" stroke="url(#techShift)" stroke-width="3"/>
+      <circle cx="34" cy="22" r="3" fill="url(#techShift)"/>
+    </g>
+
+    <!-- year -->
+    <text x="0" y="305" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2026</text>
+
+    <!-- title -->
+    <text x="0" y="363" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">B.Sc. in Computer</tspan>
+      <tspan x="0" dy="49">Science @ UTFPR</tspan>
+    </text>
+
+    <!-- divider -->
+    <line x1="-45" y1="450" x2="45" y2="450" stroke="url(#techShift)" stroke-width="3"/>
+
+    <!-- description -->
+    <text x="0" y="488" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Started a Computer Science degree</tspan>
+      <tspan x="0" dy="42">focused on Data Science,</tspan>
+      <tspan x="0" dy="42">Machine Learning and</tspan>
+      <tspan x="0" dy="42">Data Quality.</tspan>
+    </text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Milestone 6: 2026 - High-Performance Data Processing Research (BOTTOM) -->
+  <!-- ============================================================ -->
+  <g transform="translate(2100,0)">
+    <line x1="0" y1="711" x2="0" y2="767" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="5 6" opacity="0.45"/>
+    <circle cx="0" cy="700" r="11" fill="#0b1424" stroke="url(#techShift)" stroke-width="2.4" filter="url(#softGlow)"/>
+
+    <!-- year -->
+    <text x="0" y="817" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#3b82f6">2026</text>
+
+    <!-- title -->
+    <text x="0" y="875" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" fill="#e2e8f0">
+      <tspan x="0" dy="0">High-Performance</tspan>
+      <tspan x="0" dy="49">Data Processing Research</tspan>
+    </text>
+
+    <!-- divider -->
+    <line x1="-45" y1="962" x2="45" y2="962" stroke="url(#techShift)" stroke-width="3"/>
+
+    <!-- description -->
+    <text x="0" y="1000" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" fill="#94a3b8">
+      <tspan x="0" dy="0">Research on high-performance</tspan>
+      <tspan x="0" dy="42">data processing and data</tspan>
+      <tspan x="0" dy="42">visualization for large-scale</tspan>
+      <tspan x="0" dy="42">data analysis.</tspan>
+    </text>
+
+    <!-- icon: microscope -->
+    <circle cx="0" cy="1240" r="55" fill="#0b1424" stroke="url(#techShift)" stroke-width="3" filter="url(#softGlow)"/>
+    <g transform="translate(0,1240)">
+      <ellipse cx="0" cy="25" rx="28" ry="6" fill="none" stroke="url(#techShift)" stroke-width="3.5"/>
+      <line x1="0" y1="25" x2="0" y2="2" stroke="url(#techShift)" stroke-width="3.5"/>
+      <path d="M0,2 L-17,-17" fill="none" stroke="url(#techShift)" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="-17" y1="-17" x2="-17" y2="-30" stroke="url(#techShift)" stroke-width="3.5"/>
+      <circle cx="11" cy="0" r="6" fill="none" stroke="url(#techShift)" stroke-width="2.6"/>
+      <line x1="-12" y1="6" x2="10" y2="6" stroke="url(#techShift)" stroke-width="3.5"/>
+    </g>
+  </g>
 
 </svg>
