@@ -8,6 +8,14 @@
 <img src="./images/about-me.svg" width="592px" alt="About me" />
 </a>
 
+<!-- TIMELINE -->
+
+<img
+  src="./images/timeline.svg"
+  width="100%"
+  alt="Divider illustration"
+/>
+
 <!-- PAC-MAN DIVIDER -->
 
 <img
